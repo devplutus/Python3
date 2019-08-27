@@ -68,48 +68,50 @@
 # Dictionary
 * for문을 사용하면 key는 순서대로 나오지 않는다.
 
-    dic = {
-      "A" : 1,
-      "B" : 2,
-      "C" : 3
-    }
+        dic = {
+          "A" : 1,
+          "B" : 2,
+          "C" : 3
+        }
 
-    for key in dic.keys(): # or for key in dic:
-        print(key) # A B C
- 
-    for value in dic.values():
-        print(value) # 1 2 3
-  
-    for k, v in dic.items():
-        print("{} {}".format(k, v), end = " ") # A 1 B 2 C 3
+        for key in dic.keys(): # or for key in dic:
+            print(key) # A B C
+
+        for value in dic.values():
+            print(value) # 1 2 3
+
+        for k, v in dic.items():
+            print("{} {}".format(k, v), end = " ") # A 1 B 2 C 3
   
   
 # Dictionary 와 List 차이점
-*   합치기
-    list1 = [0, 1, 2, 3]
-    list2 = list + [4, 5, 6]
+* 합치기
 
-    dic1 = {'one':1, 'two', 2}
-    dic2 = {'three':3, 'four',4}
-    di1.update(dic2)
+        list1 = [0, 1, 2, 3]
+        list2 = list + [4, 5, 6]
+        
+        dic1 = {'one':1, 'two', 2}
+        dic2 = {'three':3, 'four',4}
+        di1.update(dic2)
 * 찾기
-    1 in list1
-    'one' in dic1.keys()
-    2 in dic1.values()
+
+        1 in list1
+        'one' in dic1.keys()
+        2 in dic1.values()
 
 
 
 # Tuple
 * List와 다르게 추가, 삭제, 변경이 불가능하다.
 
-    tuple1 = (1, 2, 3)
-    tuple2 = 1, 2, 3 # 괄호 생략가능
-    list1 = [1, 2, 3]
-    tuple3 = tuple(list1) # Tuple Type으로 변경 가능하다.
+        tuple1 = (1, 2, 3)
+        tuple2 = 1, 2, 3 # 괄호 생략가능
+        list1 = [1, 2, 3]
+        tuple3 = tuple(list1) # Tuple Type으로 변경 가능하다.
 
 * packing, unpacking
 
-    tuple1 = (1, 2)
-    a, b = tuple1 # a = 1, b = 2 unpacking
-    tuple2 = a, b # tuple2 = (1, 2) packing
-    a, b = b, a # a = 2, b = 1
+        tuple1 = (1, 2)
+        a, b = tuple1 # a = 1, b = 2 unpacking
+        tuple2 = a, b # tuple2 = (1, 2) packing
+        a, b = b, a # a = 2, b = 1
