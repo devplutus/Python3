@@ -29,6 +29,10 @@
     bool('') # False
     bool('A') # True
 
+## Type 확인
+
+    type(a) # type(변수명) : 자료형 반환
+    isinstance(42, int) # isinstance(값, 자료형) : 자료형 검사
     
 
 # Data Structures
@@ -57,12 +61,20 @@
 #### List Slice
     """
     slice를 하면 해당하는 부분의 리스트나 문자열을 **새로 만들어** 준다.
+    list[start:end:step=1]
     """
-    text = "hello world"
-    text1 = text[1:5] # 1 <= idx and idx < 5
-    text2 = text[1:] # 1<= idx
-    text3 = text[:5] # idx < 5
-    text4 = text[:] # all
+    text = "01234567"
+    text[1:5] # 1 <= idx and idx < 5
+    text[1:] # 1<= idx
+    text[:5] # idx < 5
+    text[:] # all
+    step=2
+    text[::step] # [0,2,4,6]
+    text[len(text)::-1] # [7,6,5,4,3,2,1,0]
+    del text[:2] # [2,3,4,5,6,7]
+    text[:2] = [8, 9] # [8,9,4,5,6,7]
+    text[:2] = [8, 9, 10] # [8,9,10,4,5,6,7]
+    text[:2] = [8] # [8,10,4,5,6,7]
 
 #### List와 String
     """
@@ -244,6 +256,135 @@
         print(True)
     # getA() 함수는 호출되지만 False이기 때문에 __단락평가__로 인해 
     # getB() 함수는 호출되지 않는다.
+
+# Class & Instance
+## Class : 함수나 변수들을 모아 놓은 집합체. 현실의 개념을 표현.
+#### self : 메소드의 첫번째 인자(자기자신)이다. 보통 사용 시 self는 생략한다.
+#### Method : 함수와는 다르게 클래스에 묶여서 클래스 인스터와 관계되는 일을 하는 함수.
+#### Function(함수)를 사용한 경우
+    class Human():
+        '''인간'''
+
+    def create(name, weight):
+        person = Human()
+        person.name = name
+        person.weight = weight
+        return person
+
+    def eat(person):
+        person.weight += 0.1
+        print("{}가 먹어서 {}kg이 되었습니다.".format(person.name, person.weight))
+
+    def walk(person):
+        person.weight -= 0.1
+        print("{}가 걸어서 {}kg이 되었습니다.".format(person.name, person.weight))
+
+
+    Human.create = create_human
+
+    person = Human.create("Plutus", 70.5)
+
+    Human.eat = eat
+    Human.walk = walk
+
+    person.walk()
+    person.eat()
+    person.walk()
+
+#### Method()를 사용한 경우
+    class Human():
+        '''인간'''
+
+        def create(name, weight):
+            person = Human()
+            person.name = name
+            person.weight = weight
+            return person
+
+        def eat(self):
+            person.weight += 0.1
+            print("{}가 먹어서 {}kg이 되었습니다.".format(person.name, person.weight))
+
+        def walk(self):
+            person.weight -= 0.1
+            print("{}가 걸어서 {}kg이 되었습니다.".format(person.name, person.weight))
+
+
+    person = Human.create("Plutus", 70.5)
+
+    person.walk()
+    person.eat()
+    person.walk()
+
+
+## 특수 메소드를 이용한 기본적인 Class 구조
+#### __init__ : 인스턴스를 만들때 실행되는 함수. 클래스를 초기화하는 함수
+#### __str__ : 인스턴스 자체를 출력할 때의 형식을 지정해주는 함수
+    class Human():
+            '''인간'''
+            
+            def __init__(self, name, weight):
+                ''' 초기화 함수 '''
+                self.name = name
+                self.weight = weight
+                
+            def __str__(self):
+                ''' 문자열과 함수 '''
+                return "It's Human Class"
+
+            def eat(self):
+                person.weight += 0.1
+                print("{}가 먹어서 {}kg이 되었습니다.".format(person.name, person.weight))
+
+            def walk(self):
+                person.weight -= 0.1
+                print("{}가 걸어서 {}kg이 되었습니다.".format(person.name, person.weight))
+
+
+        person = Human("Plutus", 70.2)
+        print(person.name) # Plutus
+        print(person.weight) # 70.2
+        print(person) # It's Human Class
+
+
+## Inheritance(상속)
+
+#### Override(오버라이드) : 부모가 가진 메소드를 같은 이름으로 덮어 쓴다는 의미
+    class Animal():
+        def walk(self):
+            print("walk")
+            
+    class Human(Animal):
+        # Override
+        def walk(self):
+            print("Human walk")
+            
+#### super() : 자식클래스에서 부모클래스의 내용을 사용하고 싶은 경우
+    class Animal():
+        def __init__(self, name):
+            self.name = name
+
+        def greet(self):
+            print("{} 이(가) 인사한다.".format(self.name))
+
+    class Human(Animal):
+        def __init__(self, name, hand):
+            # 부모의 초기화 함수를 사용
+            super().__init__(name)
+            self.hand = hand
+        def wave(self):
+            print("{}을 흔들면서".format(self.hand))
+
+        def greet(self):
+            self.wave()
+            super().greet()
+
+    test = Human("Plutus", "Left")
+    test.greet()
+
+
+## Instance : 클래스에 의해 생성된 객체이고, 인스턴스 각자 자신의 값을 가지고 있다.
+
 
 # Module
 * 모듈은 미리 만들어진 코드를 가져와 쓰는 방법이다.
