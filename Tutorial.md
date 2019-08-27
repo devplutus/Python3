@@ -1,4 +1,5 @@
-# String
+# Data Type
+## String
 
     String1 = 'string1'
     String2 = "string2"
@@ -7,7 +8,7 @@
     String3 = """ " and ' """ # " and '
 
 
-# Number
+## Number
 
     num1 = 3 # int
     num2 = 3.0 # float
@@ -18,37 +19,10 @@
     num1 = float(num1) # 3.0(float)
     num2 = int(num2) # 3(int)
 
+    
 
-# Input
-
-    a = input("Type") # == print("Type")
-                           a = input()
-                      
-  
- 
-# for문
-    patterns = ["A", "B", "C"]
-
-    for pattern in patterns: # 순회할 리스트가 있을때
-      print(pattern)
-  
-    for i in range(5) # 0 <= i and i < 5 & 순회할 횟수가 정해져 있을때
-
-    for i, pattern in enumerate(patterns): # index와 그 인덱스의 값을 반환한다.
-      print('{}번 패턴 : {}'.format(i, pattern))
- 
-    for i in range(5) # 0 <= i and i < 5팬
-    for i in range(5) # 0 <= i and i < 5
- 
- 
- 
-# Module
-* 모듈은 미리 만들어진 코드를 가져와 쓰는 방법이다.
-* import <모듈이름 또는 자신이 만든 파일 이름>    
-    import math, random # built-in Module
-
-
-# List
+# Data Structures
+## List
 
     list1 = [0, 1, 2, 3, 4, 5] # size = 6
     list1[-1] # 5(뒤에서 첫번째)
@@ -65,7 +39,7 @@
       print("Exist")
   
 
-# Dictionary
+## Dictionary
 * for문을 사용하면 key는 순서대로 나오지 않는다.
 
         dic = {
@@ -84,7 +58,7 @@
             print("{} {}".format(k, v), end = " ") # A 1 B 2 C 3
   
   
-# Dictionary 와 List 차이점
+## Dictionary 와 List 차이점
 * 합치기
 
         list1 = [0, 1, 2, 3]
@@ -101,7 +75,7 @@
 
 
 
-# Tuple
+## Tuple
 * List와 다르게 추가, 삭제, 변경이 불가능하다.
 
         tuple1 = (1, 2, 3)
@@ -115,3 +89,67 @@
         a, b = tuple1 # a = 1, b = 2 unpacking
         tuple2 = a, b # tuple2 = (1, 2) packing
         a, b = b, a # a = 2, b = 1
+
+
+
+# IO
+## Input
+
+    a = input("Type") # == print("Type")
+                           a = input()
+
+## Print
+    a = 1
+    b = 2
+    print("Text")
+    print(a)
+    print("{} {}".format(a, b))
+    print(a, b)
+
+  
+# Loops
+
+## for
+    patterns = ["A", "B", "C"]
+
+    for pattern in patterns: # 순회할 리스트가 있을때
+      print(pattern)
+  
+    for i in range(5) # 0 <= i and i < 5 & 순회할 횟수가 정해져 있을때
+
+    for i, pattern in enumerate(patterns): # index와 그 인덱스의 값을 반환한다.
+      print('{}번 패턴 : {}'.format(i, pattern))
+ 
+    for i in range(5) # 0 <= i and i < 5팬
+    for i in range(5) # 0 <= i and i < 5
+ 
+ 
+## while
+    # while [참인 조건]:
+    selected = None
+    while selected not in ['A', 'B', 'C']:
+        selected = input()
+    
+    print('selected value : ', selected)
+    
+
+## break, continue
+
+    i = 2
+    
+    while True:
+    
+        i += 1
+        
+        if i == 6:
+            break
+        elif i == 3:
+            continue
+        
+        print(i) # 4, 5
+
+
+# Module
+* 모듈은 미리 만들어진 코드를 가져와 쓰는 방법이다.
+* import <모듈이름 또는 자신이 만든 파일 이름>    
+    import math, random # built-in Module
