@@ -43,8 +43,8 @@ for i in range(5) # 0 <= i and i < 5
  
  
 # Module
-## 모듈은 미리 만들어진 코드를 가져와 쓰는 방법이다.
-## import <모듈이름 또는 자신이 만든 파일 이름>
+* 모듈은 미리 만들어진 코드를 가져와 쓰는 방법이다.
+* import <모듈이름 또는 자신이 만든 파일 이름>
 import math, random # built-in Module
 
 
@@ -66,7 +66,7 @@ if find in list1: # list1 안에 3이 있는지 확인.
   
 
 # Dictionary
-## for문을 사용하면 key는 순서대로 나오지 않는다.
+* for문을 사용하면 key는 순서대로 나오지 않는다.
 
 dic = {
   "A" : 1,
@@ -85,14 +85,14 @@ for k, v in dic.items():
   
   
 # Dictionary 와 List 차이점
-##   합치기
+*   합치기
 list1 = [0, 1, 2, 3]
 list2 = list + [4, 5, 6]
 
 dic1 = {'one':1, 'two', 2}
 dic2 = {'three':3, 'four',4}
 di1.update(dic2)
-## 찾기
+* 찾기
 1 in list1
 'one' in dic1.keys()
 2 in dic1.values()
@@ -100,14 +100,14 @@ di1.update(dic2)
 
 
 # Tuple
-## List와 다르게 추가, 삭제, 변경이 불가능하다.
+* List와 다르게 추가, 삭제, 변경이 불가능하다.
 
 tuple1 = (1, 2, 3)
 tuple2 = 1, 2, 3 # 괄호 생략가능
 list1 = [1, 2, 3]
 tuple3 = tuple(list1) # Tuple Type으로 변경 가능하다.
 
-## packing, unpacking
+* packing, unpacking
 
 tuple1 = (1, 2)
 a, b = tuple1 # a = 1, b = 2 unpacking
