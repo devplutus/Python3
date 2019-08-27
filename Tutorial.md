@@ -18,6 +18,16 @@
 
     num1 = float(num1) # 3.0(float)
     num2 = int(num2) # 3(int)
+    
+    
+## Bool
+
+    bool(0) # False
+    bool(-1) # True
+    bool(None) # False
+    bool([]) # False
+    bool('') # False
+    bool('A') # True
 
     
 
@@ -34,9 +44,50 @@
 
     find = 3
 
-
     if find in list1: # list1 안에 3이 있는지 확인.
       print("Exist")
+
+#### list.append(value) : value를 맨 뒤에 추가
+#### list.pop(index) : list의 index 값을 삭제
+#### list.index(value) : value를 가진 index를 반환
+#### list.extend([value1, valu2...]) : 리스트 뒤에 리스틀 추가
+#### list.insert(index, value) : list의 index에 value를 추가
+#### list.sort() : 값을 순서대로 정렬(Default : ASC)
+#### list.reverse() : 값을 역순으로 정렬
+#### List Slice
+    """
+    slice를 하면 해당하는 부분의 리스트나 문자열을 **새로 만들어** 준다.
+    """
+    text = "hello world"
+    text1 = text[1:5] # 1 <= idx and idx < 5
+    text2 = text[1:] # 1<= idx
+    text3 = text[:5] # idx < 5
+    text4 = text[:] # all
+
+#### List와 String
+    """
+    맨 처음 C를 공부하면 String이 Char형의 배열인것을 알 수 있다.
+    """
+    str1 = "ABCD"
+    
+    for c in str1:
+        print(c) # A B C D
+    print(str1[0]) # A
+    
+    list1 = list(str1) # ['A', 'B', 'C', 'D']
+    list2 = str1.split() # ['A', 'B', 'C', 'D']
+    
+    str2 = "16:24:30"
+    list3 = str2.split(":")
+    print(list3) # ['16', '24', '30']
+    
+    str3 = ":".join(list3)
+    print(str3) # "16:24:30"
+    
+    
+    
+    
+    
   
 
 ## Dictionary
@@ -148,6 +199,51 @@
         
         print(i) # 4, 5
 
+# Exception
+## try, except
+    """
+    try:
+        [예외가 발생할 가능성이 있는 코드]
+    except [에러 종류 또는 Except as ex]:
+        [예외를 처리할 코드]
+    
+
+    list1 = []
+    list[0] # IndexError
+    int("abc") # ValueError
+    
+    try:
+        int("abc")
+    except ValueError:
+        print("not number")
+        
+    try:
+        import my_Module
+    except ImportError:
+        print("don't exist")
+        
+## raise
+    """
+    raise [에러 종류]
+    
+    """
+    i == 0
+    if i == 0:
+        raise ValueError
+
+# 논리연산
+    def getA():
+        print("A")
+        return False
+        
+    def getB():
+        print("B")
+        return True
+    
+    if getA() and getB():
+        print(True)
+    # getA() 함수는 호출되지만 False이기 때문에 __단락평가__로 인해 
+    # getB() 함수는 호출되지 않는다.
 
 # Module
 * 모듈은 미리 만들어진 코드를 가져와 쓰는 방법이다.
