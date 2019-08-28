@@ -75,6 +75,16 @@
     text[:2] = [8, 9] # [8,9,4,5,6,7]
     text[:2] = [8, 9, 10] # [8,9,10,4,5,6,7]
     text[:2] = [8] # [8,10,4,5,6,7]
+    
+    # areas == areas2
+    areas = []
+    for i in range(1, 11):
+        areas = areas + [i*i]
+    
+    areas2 = [i*i for i in range(1, 11)]
+    
+    # (1 <= x < 11, 1 <= y < 11) Tuple List
+    areas3 = [(x, y) for x in range(1, 11) for y in range(1, 11)]
 
 #### List와 String
     """
@@ -119,6 +129,12 @@
 
         for k, v in dic.items():
             print("{} {}".format(k, v), end = " ") # A 1 B 2 C 3
+            
+        names = ['A', 'B', 'C', 'D']
+        numbers = [1, 2, 3, 4]
+        names_dic = { "number{}" : name for number, name in enumerate(names) }
+        
+        names_dic = {number, name for number, name in zip(numbers, names)}
   
   
 ## Dictionary 와 List 차이점
