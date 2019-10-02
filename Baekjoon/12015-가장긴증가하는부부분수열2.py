@@ -1,0 +1,7 @@
+n = input()
+arr = list(map(int, input().split()))
+arr.sort()
+print(arr)
+s = set(arr)
+print(s)
+print(len(s))
