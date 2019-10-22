@@ -1,20 +1,15 @@
 n, k = map(int, input().split())
 
-dp = [[0 for i in range(n)] for i in range(k + 1)]
+dp = [0 for i in range(k + 1)]
 numbers = [int(input()) for i in range(n)]
 numbers.sort()
+dp[0] = 1
+for j in range(n):
+    for i in range(1, k + 1):
+        if i - numbers[j] >= 0:
+            dp[i] += dp[i - numbers[j]]
 
-for i in range(1, k + 1):
-    for j in range(n):
-        if numbers[j] > i:
-            break
-        elif numbers[j] == i:
-            dp[i][j] = 1
-        else:
-            dp[i][j] = dp[i - numbers[j]][j]
-        print(i, j)
-
-print(dp)
+print(dp[-1])
 
 
 """
